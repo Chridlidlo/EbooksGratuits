@@ -138,3 +138,44 @@ footer {
         text-align: center;
     }
 }
+/* Styles pour l'infobulle */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 250px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position au-dessus du livre */
+    left: 50%;
+    margin-left: -125px; /* Centre la bulle */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Flèche de l'infobulle */
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Afficher la bulle au survol */
+.book-item:hover .tooltip .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
