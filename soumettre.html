@@ -112,7 +112,7 @@
                     </div>
                 </form>
                 <div class="note">
-                    Sur la page GitHub qui va s'ouvrir, **glissez-déposez** ou **joignez votre fichier manuellement** pour compléter votre soumission.
+                    Sur la page GitHub qui va s'ouvrir, glissez-déposez ou joignez votre fichier manuellement pour compléter votre soumission.
                 </div>
             </div>
         </section>
@@ -133,11 +133,11 @@
 
             // Ajout du contenu du formulaire à l'Issue GitHub
             const issueTitle = `Soumission : ${title} par ${author}`;
-            let issueBody = `**Titre :** ${title}\n**Auteur :** ${author}\n`;
+            let issueBody = `Titre : ${title}\nAuteur : ${author}\n`;
             if (email) {
-                issueBody += `**Courriel :** ${email}\n`;
+                issueBody += `Courriel : ${email}\n`;
             }
-            issueBody += `\n---\n**Message :**\n${message}\n\n---\n**Note :** N'oubliez pas de joindre le fichier à la soumission.\n\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n⌄`;
+            issueBody += `\n---\nMessage :\n${message}\n\n---\nNote : N'oubliez pas de joindre le fichier à la soumission.\n\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n⌄`;
 
             const githubUrl = `https://github.com/Chridlidlo/EbooksGratuits/issues/new?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}`;
 
