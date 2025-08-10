@@ -88,7 +88,7 @@
                     <button type="submit" class="submit-btn">Soumettre</button>
                 </form>
                 <div class="note">
-                    Sur la page GitHub qui va s'ouvrir, **glissez-déposez** ou **joignez votre fichier manuellement** pour compléter votre soumission.
+                    Sur la page GitHub qui va s'ouvrir, glissez-déposez ou joignez votre fichier manuellement pour compléter votre soumission.
                 </div>
             </div>
         </section>
@@ -107,7 +107,7 @@
             const message = document.getElementById('message').value;
 
             const issueTitle = `Soumission : ${title} par ${author}`;
-            const issueBody = `**Titre :** ${title}\n**Auteur :** ${author}\n\n---\n**Message :**\n${message}\n\n---\n**Note :** N'oubliez pas de joindre le fichier à la soumission.`;
+            const issueBody = `Titre : ${title}\nAuteur : ${author}\n\n---\nMessage :\n${message}\n\n---\nNote : N'oubliez pas de joindre le fichier à la soumission.\n|\n|\n|\n|\n|\n|\n|\n|\n|\n⌄`;
 
             const githubUrl = `https://github.com/Chridlidlo/EbooksGratuits/issues/new?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}`;
 
