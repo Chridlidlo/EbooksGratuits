@@ -92,3 +92,49 @@ footer {
     width: 100%;
     margin-top: 2rem;
 }
+/* Styles pour la barre de recherche */
+.search-container {
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+#search-bar {
+    width: 100%;
+    max-width: 600px;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* S'assure que le padding n'augmente pas la largeur */
+}
+
+/* Styles pour les images de couverture */
+.book-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem; /* Espace entre l'image et le texte */
+}
+
+.book-cover-container {
+    flex-shrink: 0;
+}
+
+.book-cover-container img {
+    width: 120px; /* Taille de l'image de couverture */
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.book-info {
+    flex-grow: 1;
+}
+
+/* Ajustement pour les petits écrans */
+@media (max-width: 600px) {
+    .book-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
