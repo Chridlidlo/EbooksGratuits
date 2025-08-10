@@ -5,6 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soumettre un livre - FreeEbook.ca</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles spécifiques pour le formulaire */
+        .form-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        .submit-btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .note {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 0.5rem;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -14,22 +64,50 @@
 
     <main>
         <section class="form-section">
-            <h2>Soumettre ou demander un livre</h2>
-            <p>Pour soumettre un livre ou demander un nouveau titre, veuillez utiliser la section **"Issues"** de notre dépôt GitHub. C'est simple et gratuit pour tout le monde !</p>
-            <p>
-                Cliquez sur le bouton ci-dessous, puis sur **"New issue"**.
-                <ul>
-                    <li>Pour soumettre un livre, donnez un titre clair à votre "Issue" comme : "Soumission : Le Grand Livre de la Science-Fiction" et joignez votre fichier.</li>
-                    <li>Pour demander un livre, donnez un titre comme : "Demande : Le Petit Prince d'Antoine de Saint-Exupéry".</li>
-                    <li>Si le fichier que vous souhaitez soumettre n'est pas autorisé par github, essayer de le zipper.</li>
-                </ul>
-            </p>
-            <a href="https://github.com/Chridlidlo/EbooksGratuits/issues/new" target="_blank" class="download-btn">Aller à la page de soumission</a>
+            <div class="form-container">
+                <h2>Formulaire de soumission</h2>
+                <form id="submission-form">
+                    <div class="form-group">
+                        <label for="book-title">Titre du livre (requis)</label>
+                        <input type="text" id="book-title" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Auteur (requis)</label>
+                        <input type="text" id="author" name="author" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message ou Description (optionnel)</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="file-upload">Fichier à soumettre (facultatif)</label>
+                        <p class="note">Vous devrez **joindre votre fichier manuellement** sur la page GitHub après avoir cliqué sur "Soumettre".</p>
+                    </div>
+                    <button type="submit" class="submit-btn">Soumettre</button>
+                </form>
+            </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 FreeEbook.ca. Tous droits réservés.</p>
     </footer>
+
+    <script>
+        document.getElementById('submission-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const title = document.getElementById('book-title').value;
+            const author = document.getElementById('author').value;
+            const message = document.getElementById('message').value;
+
+            const issueTitle = `Soumission : ${title} par ${author}`;
+            const issueBody = `**Titre :** ${title}\n**Auteur :** ${author}\n\n---\n**Message :**\n${message}\n\n---\n**Note :** N'oubliez pas de joindre le fichier à la soumission.`;
+
+            const githubUrl = `https://github.com/Chridlidlo/EbooksGratuits/issues/new?title=${encodeURIComponent(issueTitle)}&body=${encodeURIComponent(issueBody)}`;
+
+            window.open(githubUrl, '_blank');
+        });
+    </script>
 </body>
 </html>
