@@ -50,9 +50,14 @@
             background-color: #0056b3;
         }
         .note {
-            font-size: 0.9rem;
-            color: #555;
+            font-size: 1rem;
+            color: #d9534f; /* Couleur pour attirer l'attention */
+            font-weight: bold;
             margin-top: 0.5rem;
+            text-align: center;
+            border: 1px dashed #d9534f;
+            padding: 1rem;
+            background-color: #fcf8e3;
         }
     </style>
 </head>
@@ -66,6 +71,7 @@
         <section class="form-section">
             <div class="form-container">
                 <h2>Formulaire de soumission</h2>
+                <p>Remplissez les informations ci-dessous. En cliquant sur "Soumettre", une page GitHub s'ouvrira pour finaliser votre soumission.</p>
                 <form id="submission-form">
                     <div class="form-group">
                         <label for="book-title">Titre du livre (requis)</label>
@@ -79,12 +85,11 @@
                         <label for="message">Message ou Description (optionnel)</label>
                         <textarea id="message" name="message"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="file-upload">Fichier à soumettre (facultatif)</label>
-                        <p class="note">Vous devrez **joindre votre fichier manuellement** sur la page GitHub après avoir cliqué sur "Soumettre".</p>
-                    </div>
                     <button type="submit" class="submit-btn">Soumettre</button>
                 </form>
+                <div class="note">
+                    Sur la page GitHub qui va s'ouvrir, **glissez-déposez** ou **joignez votre fichier manuellement** pour compléter votre soumission.
+                </div>
             </div>
         </section>
     </main>
